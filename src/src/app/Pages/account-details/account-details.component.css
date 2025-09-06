@@ -1,0 +1,19 @@
+.current-balance {
+  border-bottom: 4px solid lightgreen;
+}
+
+.available-balance {
+  border-bottom: 4px solid lightskyblue;
+}
+
+.spent-this-week {
+  border-bottom: 4px solid lightcoral;
+}
+
+.top-categories {
+  border-bottom: 4px solid purple;
+}
+
+.transactions-section {
+  margin-top: 25px;
+}

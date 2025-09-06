@@ -1,0 +1,55 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'ag-grid-community/dist/styles/ag-grid.css';
+@import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
+@import 'ag-grid-community/dist/styles/ag-theme-balham.css';
+@import 'ag-grid-community/dist/styles/ag-theme-material.css';
+@import 'ag-grid-community/dist/styles/ag-theme-alpine-dark.css';
+@import 'ag-grid-community/dist/styles/ag-theme-balham-dark.css';
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+.transaction-logo {
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.centre-text {
+  text-align: center;
+}
+
+.hide-button-outline:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.mobileChart {
+  min-height: 400px;
+}
+
+.outline {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.buy-text {
+  color: forestgreen;
+}
+
+.sale-text {
+  color: red;
+}

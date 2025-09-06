@@ -1,0 +1,62 @@
+<div
+  fxLayout="row"
+  fxLayout.xs="column"
+  fxLayoutGap="10px"
+  fxLayoutAlign="left"
+>
+  <mat-card>
+    <mat-card-title class="centre-text" style="font-weight: lighter; font-size: 28px;"
+      >Truelayer
+    </mat-card-title>
+    <mat-card-content>
+      Integrate with Truelayer to allow you to automatically sync your account
+      with your bank provider. This integration uses
+      <strong>Open Banking</strong> in order to fetch the transactions from your
+      bank account. To find out more information visit
+      <a href="https://truelayer.com/data-api/" target="_blank"
+        >https://truelayer.com/data-api/</a
+      >
+    </mat-card-content>
+    <mat-card-actions>
+      <div
+        matTooltip="Truelayer Datafeed disabled in demo mode"
+        [matTooltipDisabled]="(isDemo$ | async) !== true"
+      >
+        <button
+          mat-stroked-button
+          color="primary"
+          [routerLink]="['/datafeeds/truelayer']"
+          class="setup-button"
+          [disabled]="(isDemo$ | async) === true"
+        >
+          Setup
+        </button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+
+  <mat-card>
+    <mat-card-title class="centre-text" style="font-weight: lighter; font-size: 28px;"
+      >Coinbase
+    </mat-card-title>
+    <mat-card-content>
+      Integrate with Coinbase to allow you to retrieve your investments with the coinbase platform.
+    </mat-card-content>
+    <mat-card-actions>
+      <div
+        matTooltip="Coinbase Datafeed disabled in demo mode"
+        [matTooltipDisabled]="(isDemo$ | async) !== true"
+      >
+        <button
+          mat-stroked-button
+          color="primary"
+          [routerLink]="['/datafeeds/coinbase']"
+          class="setup-button"
+          [disabled]="(isDemo$ | async) === true"
+        >
+          Setup
+        </button>
+      </div>
+    </mat-card-actions>
+  </mat-card>
+</div>

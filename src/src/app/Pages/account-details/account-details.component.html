@@ -1,0 +1,63 @@
+<div *ngIf="account$ | async; let account">
+  <div style="margin-bottom: 10px">
+    <mat-hint *ngIf="isAccountMapped | async"
+      >Last Refreshed: {{ account.LastRefreshed | date: "HH:mm dd MMMM" }}<br
+    /></mat-hint>
+    <button
+      *ngIf="isAccountMapped | async"
+      mat-flat-button
+      color="primary"
+      style="margin-right: 8px"
+      (click)="refreshAccount()"
+    >
+      Refresh
+    </button>
+    <button
+      mat-stroked-button
+      color="primary"
+      style="margin-right: 8px"
+      [routerLink]="['external-account']"
+    >
+      External Account
+    </button>
+    <button mat-stroked-button color="primary" style="margin-right: 8px">
+      Rename
+    </button>
+    <button mat-stroked-button color="warn" (click)="delete(account.ID)">
+      Delete
+    </button>
+  </div>
+  <div
+    fxLayout="row"
+    fxLayout.xs="column"
+    fxLayoutGap="10px"
+    fxLayoutAlign="center"
+  >
+    <mat-card class="current-balance mat-elevation-z3" fxFlex="33%">
+      <mat-card-content>Current Balance</mat-card-content>
+      <mat-card-title>{{
+        account.CurrentBalance | currency: account.BaseCurrency
+      }}</mat-card-title>
+    </mat-card>
+    <mat-card class="available-balance mat-elevation-z3" fxFlex="33%">
+      <mat-card-content>Available Balance</mat-card-content>
+      <mat-card-title>{{
+        account.AvailableBalance | currency: account.BaseCurrency
+      }}</mat-card-title>
+    </mat-card>
+    <mat-card class="spent-this-week mat-elevation-z3" fxFlex="33%">
+      <mat-card-content>Spent This Week</mat-card-content>
+      <mat-card-title *ngIf="spentThisWeek != null; else spentThisWeekLoader">{{
+        spentThisWeek | currency: account.BaseCurrency
+      }}</mat-card-title>
+      <ng-template #spentThisWeekLoader
+        ><mat-spinner style="margin: auto" diameter="40"></mat-spinner
+      ></ng-template>
+    </mat-card>
+  </div>
+
+  <h2 class="transactions-section">Account Transactions:</h2>
+  <app-transactions-table [account]="account.ID"></app-transactions-table>
+</div>
+
+<div *ngIf="accountNotFound"><h1>Could not Find Account</h1></div>

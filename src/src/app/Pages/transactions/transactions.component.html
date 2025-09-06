@@ -1,0 +1,19 @@
+<div style="display: flex; flex-direction: row; margin-bottom: 10px;">
+  <button mat-stroked-button color="primary" (click)="exportDataAsCsv()">Export</button>
+</div>
+
+<ag-grid-angular
+   [class]="theme"
+   [columnDefs]="columnDefs"
+   [defaultColDef]="defaultColDef"
+   [rowData]="transactions | async"
+   [animateRows]="true"
+   (gridReady)="loadData($event)"
+   [pagination]="true"
+   [paginationPageSize]="100"
+   [suppressCellFocus]="true"
+   [enableCellTextSelection]="true"
+   (rowDoubleClicked)="editTransaction($event)"
+   domLayout="autoHeight"
+   [suppressMenuHide]="false"
+ ></ag-grid-angular>

@@ -1,0 +1,18 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "FinanceApiUrl": {
+      "type": "string"
+    },
+    "IsDemo": {
+      "type": "boolean",
+      "default": false
+    },
+    "SiteName": {
+      "type": "string",
+      "default": "Finance Manager"
+    }
+  },
+  "required": ["FinanceApiUrl"]
+}
